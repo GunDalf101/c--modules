@@ -11,9 +11,9 @@ int main(){
         if (input == "EXIT")
             exit(0);
         else if (input == "ADD")
-            phoneBook.addContact();
+            phoneBook.theAddition();
         else if (input == "SEARCH")
-            phoneBook.searchContact();
+            phoneBook.theSearch();
         else
             std::cout << "This Is Not a Command!!" << std::endl;
     }
