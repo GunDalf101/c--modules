@@ -6,8 +6,11 @@ int main(){
 
     while(1){
         std::cout << "> ";
-        if (std::getline(std::cin, input) == false)
-            exit(0);
+        if (std::getline(std::cin, input) == false){
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
         if (input == "EXIT")
             exit(0);
         else if (input == "ADD")

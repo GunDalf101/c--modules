@@ -20,12 +20,15 @@ int main(int ac, char** av){
     std::ofstream outFile(fileName + ".replace");
 
     if (!outFile) {
-            std::cerr << "Error: Cannot create or open output file." << std::endl;
-            return 1;
-        }
+        std::cerr << "Error: Cannot create or open output file." << std::endl;
+        return 1;
+    }
 
-    std::string fileContent((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
+    // std::string fileContent((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
     
+    std::string fileContent;
+    getline(inFile, fileContent, '\0');
+
     inFile.close();
 
     std::string newLine;

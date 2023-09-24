@@ -10,10 +10,7 @@ class PhoneBook{
         size_t  size;
         size_t  count;
     public:
-        PhoneBook(){
-            size = 0;
-            count = 0;
-        }
+        PhoneBook();
 
         void    theAddition();
         void    theSearch();
