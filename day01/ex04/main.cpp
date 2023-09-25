@@ -2,11 +2,13 @@
 #include <string>
 #include <fstream>
 
+
+
 int main(int ac, char** av){
     if (ac != 4)
         exit(0);
     std::string fileName = av[1];
-    std::string s1 = av[2];
+    std::string s1 = "\n";
     std::string s2 = av[3];
     std::string line;
     std::ifstream inFile;
