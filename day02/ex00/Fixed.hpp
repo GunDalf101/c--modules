@@ -11,13 +11,12 @@ class Fixed {
     public:
         Fixed();
         Fixed(const Fixed& oldObj);
-        Fixed(const int intFixed);
-        Fixed()
         void operator=(const Fixed& oldObj);
         ~Fixed();
 
         int getRawBits( void ) const;
         void setRawBits( int const raw );
 };
+
 
 #endif
