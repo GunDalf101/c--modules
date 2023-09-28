@@ -1,5 +1,6 @@
 #include "HumanA.hpp"
 #include "Weapon.hpp"
+#include <string>
 
 HumanA::HumanA(std::string myName, Weapon& firstWeapon) : weapon(firstWeapon){
     this->name = myName;
