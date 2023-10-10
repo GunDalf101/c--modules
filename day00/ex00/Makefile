@@ -25,6 +25,4 @@ re: fclean all
 run: all clean
 	./$(NAME) "test"
 
-.PHONY: all clean fclean re run
-
-#.SILENT:
+.PHONY: all clean fclean re run 

@@ -9,8 +9,10 @@ Point::Point(const float x, const float y): x(x), y(y){
 Point::Point(const Point& oldPoint): x(oldPoint.x), y(oldPoint.y){
     *this = oldPoint;
 }
-void Point::operator=(const Point& oldPoint){
-    (void) oldPoint;
+Point& Point::operator=(const Point& oldPoint){
+    (Fixed)this->x = oldPoint.x;
+    (Fixed)this->y = oldPoint.y;
+    return *this;
 }
 Point::~Point(){
 

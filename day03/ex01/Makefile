@@ -4,13 +4,12 @@ RM = rm -rf
 NAME = fixed
 
 SRCS = main.cpp \
-		Fixed.cpp \
-		Point.cpp \
-		bsp.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-all: $(NAME)
+all: $(NAME) ClapTrap.hpp
 
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)

@@ -1,11 +1,6 @@
 #include "PhoneBook.hpp"
-#include <_ctype.h>
-#include <cctype> 
-#include <ios>
 
-PhoneBook::PhoneBook(){
-    size = 0;
-    count = 0;
+PhoneBook::PhoneBook(): size(0), count(0){
 }
 
 bool containsDigits(const std::string& str) {

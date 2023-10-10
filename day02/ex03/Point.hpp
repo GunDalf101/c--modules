@@ -11,7 +11,7 @@ class Point {
         Point();
         Point(const float x, const float y);
         Point(const Point& oldPoint);
-        void operator=(const Point& oldPoint);
+        Point& operator=(const Point& oldPoint);
         ~Point();
 
         Fixed getX();

@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -rf
-NAME = epic
+NAME = fixed
 
 SRCS = main.cpp \
 		Fixed.cpp

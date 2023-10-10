@@ -2,7 +2,9 @@
 #include <string>
 #include <fstream>
 
-
+void replace() {
+    
+}
 
 int main(int ac, char** av){
     if (ac != 4)
@@ -25,8 +27,6 @@ int main(int ac, char** av){
         std::cerr << "Error: Cannot create or open output file." << std::endl;
         return 1;
     }
-
-    // std::string fileContent((std::istreambuf_iterator<char>(inFile)), std::istreambuf_iterator<char>());
     
     std::string fileContent;
     getline(inFile, fileContent, '\0');

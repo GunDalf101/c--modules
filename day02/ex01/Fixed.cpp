@@ -42,7 +42,7 @@ float Fixed::toFloat( void ) const{
 }
 
 int Fixed::toInt( void ) const{
-    return this->fixedValue >> Fixed::fractalBit;
+    return (int)this->fixedValue / (int)(1 << (Fixed::fractalBit));
 }
 
 std::ostream &operator<<(std::ostream &stream, const Fixed &nbr){
