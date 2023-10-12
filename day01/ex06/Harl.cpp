@@ -29,13 +29,13 @@ void Harl::complain( std::string level ){
         {
             switch (i) {
                 case 0:
-                    (this->*logPtr[i])();
+                    (this->*logPtr[0])();
                 case 1:
-                    (this->*logPtr[i])();
+                    (this->*logPtr[1])();
                 case 2:
-                    (this->*logPtr[i])();
+                    (this->*logPtr[2])();
                 case 3:
-                    (this->*logPtr[i])();
+                    (this->*logPtr[3])();
                     break ;
                 default:
                     std::cout << "Invalid Harl spell components" << std::endl;

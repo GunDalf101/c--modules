@@ -1,7 +1,7 @@
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 RM = rm -rf
-NAME = fixed
+NAME = FragTrap
 
 SRCS = main.cpp \
 		ClapTrap.cpp \

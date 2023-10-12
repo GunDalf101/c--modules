@@ -1,10 +1,13 @@
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CFLAGS = -Wall -Wextra -Wshadow -Wno-shadow -Werror -std=c++98
 RM = rm -rf
-NAME = ClapTrap
+NAME = DiamondTrap
 
 SRCS = main.cpp \
 		ClapTrap.cpp \
+		ScavTrap.cpp \
+		FragTrap.cpp \
+		DiamondTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
