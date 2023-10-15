@@ -13,8 +13,9 @@ int main(void)
 
 	Character* took = new Character("Fool of a Took");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	tmp = src->createMateria("ice1");
 	took->equip(tmp);
+	delete tmp;
 	tmp = src->createMateria("cure");
 	took->equip(tmp);
 
@@ -30,6 +31,7 @@ int main(void)
 	delete src2;
 
 	// full inventory and unequip
+	delete tmp;
 	tmp = src_copy->createMateria("ice");
 	took->equip(tmp);
 
@@ -52,13 +54,16 @@ int main(void)
 	took_copy->use(3, *gundalf);
 
 	// materia that does not exist
+	delete tmp;
 	tmp = src->createMateria("does_not_exist");
+	delete tmp;
 	tmp = src->createMateria("ice");
 
 	took_copy->equip(tmp);
 	took_copy->use(3, *gundalf);
 
 	// delete objects
+	delete tmp;
 	delete gundalf;
 	delete took_copy;
 	delete src;

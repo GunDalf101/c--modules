@@ -33,6 +33,7 @@ wrongJ->makeSound();
 wrongI->makeSound();
 wrongMeta->makeSound();
 std::cout << std::endl;
+delete wrongI;
 delete wrongMeta;
 delete wrongJ;
 return 0;

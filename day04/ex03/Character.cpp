@@ -39,6 +39,9 @@ Character::~Character() {
             delete this->inventory[i];
         }
     }
+    for (int i = 0; i < 1024; i++) {
+        delete this->garbage[i];
+    }
 }
 
 std::string const &Character::getName() const {
@@ -47,16 +50,19 @@ std::string const &Character::getName() const {
 
 void Character::equip(AMateria *m) {
     for (int i = 0; i < 4; i++) {
-        if (this->inventory[i] == NULL) {
-            this->inventory[i] = m;
+        if (this->inventory[i] == NULL && m != NULL) {
+            this->inventory[i] = m->clone();
             break;
         }
     }
 }
 
 void Character::unequip(int idx) {
+    static int i;
     if (idx >= 0 && idx < 4) {
+        this->garbage[i] = this->inventory[idx];
         this->inventory[idx] = NULL;
+        i++;
     }
 }
 
