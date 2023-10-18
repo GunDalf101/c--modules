@@ -14,10 +14,10 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) AMateria.hpp Character.hpp Cure.hpp Ice.hpp MateriaSource.hpp IMateriaSource.hpp ICharacter.hpp
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -g
 
-%.o: %.cpp
+%.o: %.cpp AMateria.hpp Character.hpp Cure.hpp Ice.hpp MateriaSource.hpp IMateriaSource.hpp ICharacter.hpp
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:

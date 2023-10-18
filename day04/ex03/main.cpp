@@ -4,8 +4,14 @@
 #include "MateriaSource.hpp"
 #include <cstdlib>
 
+void showLeaks(void) {
+	system("leaks materiaGenerator");
+}
+
 int main(void) 
 {
+	atexit(showLeaks);
+
 	// subject
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());

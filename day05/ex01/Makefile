@@ -1,24 +1,20 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 RM = rm -rf
-NAME = Animalism
+NAME = Bureaucrat
 
 SRCS = main.cpp \
-		Animal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp \
-		Brain.cpp
+		Bureaucrat.cpp \
+		Form.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+%.o: %.cpp
 	${CC} ${CFLAGS} -c $< -o $@
 
 clean:
