@@ -7,24 +7,27 @@ class Bureaucrat;
 # include "Bureaucrat.hpp"
 
 
-class Form {
+class AForm {
     private:
         std::string const	_name;
         bool				isSigned;
+        std::string const	_target;
         int const			_gradeToSign;
         int const			_gradeToExecute;
-        Form();
+        AForm();
     public:
-        Form(std::string const &name, int gradeToSign, int gradeToExecute);
-        Form(Form const &copy);
-        ~Form();
+        AForm(std::string const &name, int gradeToSign, int gradeToExecute, std::string const &target);
+        AForm(AForm const &copy);
+        virtual ~AForm();
 
-        Form &operator=(Form const &copy);
+        AForm &operator=(AForm const &copy);
 
         std::string const	&getName() const;
         bool				getSigned() const;
         int					getGradeToSign() const;
         int					getGradeToExecute() const;
+        std::string const	&getTarget() const;
+        virtual void		executionOrder(Bureaucrat const &executor) const = 0;
         void				beSigned(Bureaucrat const &bureaucrat);
 
         class GradeTooHighException : public std::exception {
@@ -37,6 +40,6 @@ class Form {
         };
 };
 
-std::ostream &operator<<(std::ostream &out, Form const &form);
+std::ostream &operator<<(std::ostream &out, AForm const &form);
 
 #endif
