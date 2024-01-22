@@ -31,5 +31,5 @@ int main(int argc, char **argv)
 	delete a;
 	delete b;
 	delete c;
-	return EXIT_SUCCESS;
+	return 0;
 }

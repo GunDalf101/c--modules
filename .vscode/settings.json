@@ -71,6 +71,7 @@
         "random": "cpp",
         "fstream": "cpp",
         "numbers": "cpp",
-        "cinttypes": "cpp"
+        "cinttypes": "cpp",
+        "stack": "cpp"
     }
 }
