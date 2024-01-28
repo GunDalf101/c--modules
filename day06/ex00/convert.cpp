@@ -36,7 +36,7 @@ bool floatOverflow(std::string &literal) {
     float f;
     ss >> f;
     std::stringstream ss2;
-    ss2 << std::fixed << f;
+    ss2 << std::fixed << std::setprecision(1) << f;
     return ss2.str() == literal;
 }
 
@@ -45,7 +45,7 @@ bool doubleOverflow(std::string &literal) {
     double d;
     ss >> d;
     std::stringstream ss2;
-    ss2 << std::fixed << d;
+    ss2 << std::fixed << std::setprecision(1) << d;
     return ss2.str() == literal;
 }
 
@@ -63,9 +63,9 @@ void toChar(std::string &literal) {
     std::stringstream ss(literal);
     try {
         ss >> c;
-        if (!isChar(literal) || literal == "nanf" || literal == "nan" || literal == "inff" || literal == "+inff" || literal == "inf" || literal == "+inf" || literal == "-inff" || literal == "-inf")
+        if (!isChar(literal) || c < 0 || literal == "nanf" || literal == "nan" || literal == "inff" || literal == "+inff" || literal == "inf" || literal == "+inf" || literal == "-inff" || literal == "-inf")
             throw std::exception();
-        if (c < 32 || c > 126)
+        if (c < 32|| c > 126)
             std::cout << "char: Non displayable" << std::endl;
         else
             std::cout << "char: '" << static_cast<char>(c) << "'" << std::endl;
@@ -99,7 +99,7 @@ void toFloat(std::string &literal) {
         else if (literal == "-inff" || literal == "-inf")
             std::cout << "float: -inff" << std::endl;
         else
-            std::cout << "float: " << std::fixed << static_cast<float>(f) << "f" << std::endl;
+            std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(f) << "f" << std::endl;
     } catch (std::exception &e) {
         std::cout << "float: impossible" << std::endl;
     }
@@ -117,7 +117,7 @@ void toDouble(std::string &literal) {
         else if (literal == "-inff" || literal == "-inf")
             std::cout << "float: -inf" << std::endl;
         else
-            std::cout << "double: " << std::fixed << static_cast<double>(d) << std::endl;
+            std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(d) << std::endl;
     } catch (std::exception &e) {
         std::cout << "double: impossible" << std::endl;
     }
@@ -152,25 +152,33 @@ void Convert::convert(std::string &literal) {
         case CHAR: {
             char c;
             ss >> c;
-            literal = std::to_string(static_cast<int>(c));
+            std::stringstream char_ss;
+            char_ss << static_cast<int>(c);
+            literal = char_ss.str();
             break;
         }
         case INT: {
             int i;
             ss >> i;
-            literal = std::to_string(i);
+            std::stringstream int_ss;
+            int_ss << i;
+            literal = int_ss.str();
             break;
         }
         case FLOAT: {
             float f;
             ss >> f;
-            literal = std::to_string(f);
+            std::stringstream float_ss;
+            float_ss << f;
+            literal = float_ss.str();
             break;
         }
         case DOUBLE: {
             double d;
             ss >> d;
-            literal = std::to_string(d);
+            std::stringstream double_ss;
+            double_ss << d;
+            literal = double_ss.str();
             break;
         }
     }
